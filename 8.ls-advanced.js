@@ -1,21 +1,21 @@
 // A partir de Node.js 16, se recomienda utilizar 'node:' antes de fs y path
-const fs = require('node:fs/promises');
-const path = require('node:path');
-const pc = require('picocolors');
+const fs = require('node:fs/promises')
+const path = require('node:path')
+const pc = require('picocolors')
 
 // Obtiene la carpeta del primer argumento de la línea de comandos o usa el directorio actual por defecto
-const folder = process.argv[2] ?? '.';
+const folder = process.argv[2] ?? '.'
 
-//Función asincrónica que lista y muestra información sobre los archivos en una carpeta.
-async function ls(folder) {
-  let files;
+// Función asincrónica que lista y muestra información sobre los archivos en una carpeta.
+async function ls (folder) {
+  let files
 
   try {
     // Lee los archivos en la carpeta
-    files = await fs.readdir(folder);
+    files = await fs.readdir(folder)
   } catch (err) {
     // Maneja el error si no se puede leer la carpeta
-    console.error(pc.red(`No se pudo leer el directorio ${folder}`));
+    console.error(pc.red(`No se pudo leer el directorio ${folder}`))
     process.exit(1);
   }
 
